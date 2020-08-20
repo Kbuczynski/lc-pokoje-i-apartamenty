@@ -10,7 +10,7 @@ Simple page based on PSD project
 * [Setup](#setup)
 
 ## Live
-[LC | pokoje & apartamenty]()
+[LC | pokoje & apartamenty](https://kbuczynski.github.io/lc-pokoje-i-apartamenty/dist/)
 
 ## Technologies
 
