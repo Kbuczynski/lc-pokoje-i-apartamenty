@@ -1,0 +1,20 @@
+{
+  "name": "lc-pokoje-apartamenty",
+  "version": "1.0.0",
+  "author": "kbuczynski",
+  "license": "ISC",
+  "scripts": {
+    "scss:build": "node-sass --output-style compressed -o ./dist/css ./src/scss",
+    "scss:watch": "onchange -v \"./src/scss/**/*.scss\" -- npm run scss:build",
+    "html:build": "htmlminify ./src/index.html > ./dist/index.html",
+    "js:build": "minify \"./src/js/navigation.js\" --out-file \"./dist/js/navigation.js\"",
+    "build": "parallelshell \"npm run scss:build\" \"npm run html:build\" \"npm run js:build\""
+  },
+  "devDependencies": {
+    "babel-minify": "^0.5.1",
+    "html-minify": "^0.3.2",
+    "node-sass": "^4.14.1",
+    "onchange": "^7.0.2",
+    "parallelshell": "^3.0.1"
+  }
+}

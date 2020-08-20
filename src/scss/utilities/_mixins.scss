@@ -1,0 +1,56 @@
+@mixin container-grid {
+  display: grid;
+  grid-template-columns: 10vw 1fr 10vw;
+}
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == "very-small" {
+    @media (max-width: 600px) {
+      @content;
+    }
+  }
+  @if $breakpoint == "small" {
+    @media (max-width: 750px) {
+      @content;
+    }
+  }
+  @if $breakpoint == "medium" {
+    @media (max-width: 1150px) {
+      @content;
+    }
+  } @else if $breakpoint == "large" {
+    @media (max-width: 1500px) {
+      @content;
+    }
+  } @else if $breakpoint == "desktop" {
+    @media (min-width: 1300px) {
+      @content;
+    }
+  }
+}
+
+@mixin hamburger-pseudoelements {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-top: 0.2rem solid $white;
+  transition: transform 0.3s ease-out;
+}
+
+@mixin button {
+  padding: 0.5rem 4rem;
+  background: $purple;
+  color: $white;
+  border: none;
+  border-radius: 5px;
+  font-style: italic;
+  cursor: pointer;
+  font-weight: bold;
+
+  &:hover {
+    animation: rotate-button 0.2s ease;
+  }
+}

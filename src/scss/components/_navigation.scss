@@ -1,0 +1,207 @@
+.navigation {
+  grid-column: 2 / 3;
+  grid-row: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  $menu-height: 15vh;
+
+  @include respond-to("medium") {
+    height: $menu-height;
+  }
+
+  &__logo {
+    @include respond-to("large") {
+      & > img {
+        width: 80%;
+      }
+    }
+
+    @include respond-to("very-small") {
+      & > img {
+        width: 50%;
+      }
+    }
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+
+    @include respond-to("medium") {
+      position: absolute;
+      top: $menu-height;
+      left: 0;
+      width: 100%;
+      background: #49155ddc;
+      padding: 2.4rem 1.8rem;
+      transform: translateY(-200vh);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    &__top {
+      display: flex;
+      justify-content: flex-end;
+
+      @include respond-to("medium") {
+        justify-content: flex-start;
+      }
+
+      @include respond-to("very-small") {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        row-gap: 0.5rem;
+      }
+
+      &__item {
+        color: $white;
+        font-size: 1.1rem;
+        padding: 0 0.1rem;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        filter: opacity(0.3);
+        transition: filter 0.3s ease-in;
+
+        @include respond-to("large") {
+          font-size: 0.9rem;
+        }
+
+        @include respond-to("medium") {
+          font-size: 1.3rem;
+        }
+
+        @include respond-to("very-small") {
+          grid-row: 2;
+          width: 2rem;
+          justify-content: flex-start;
+        }
+
+        &:last-child {
+          padding-right: 0;
+        }
+
+        & > i {
+          font-size: 1.5rem;
+
+          @include respond-to("large") {
+            font-size: 1rem;
+          }
+
+          @include respond-to("medium") {
+            font-size: 1.5rem;
+          }
+        }
+
+        & > img {
+          width: 70%;
+          height: 70%;
+
+          @include respond-to("large") {
+            width: 60%;
+            height: 60%;
+          }
+
+          @include respond-to("medium") {
+            width: 70%;
+            height: 70%;
+          }
+
+          @include respond-to("very-small") {
+            width: 80%;
+            height: 80%;
+          }
+        }
+
+        &:hover {
+          filter: opacity(1);
+        }
+      }
+
+      &__item--phone {
+        padding-right: 2rem;
+
+        @include respond-to("very-small") {
+          grid-column: 1 / 4;
+          grid-row: 1;
+          width: 100%;
+        }
+
+        & > i {
+          &:first-child {
+            transform: rotate(-45deg);
+            padding: 0 0.8rem;
+          }
+        }
+      }
+    }
+
+    &__line {
+      margin: 0.5rem 0;
+      filter: opacity(0.3);
+      border-radius: 100%;
+    }
+
+    &__bottom {
+      display: flex;
+      list-style-type: none;
+
+      @include respond-to("medium") {
+        flex-direction: column;
+      }
+
+      &__item {
+        padding: 0 1rem;
+        font-size: .9rem;
+        position: relative;
+        letter-spacing: 0.1rem;
+
+        @include respond-to("large") {
+          font-size: 0.8rem;
+          padding: 0 0 0 0.5rem;
+        }
+
+        @include respond-to("medium") {
+          font-size: 1.5rem;
+          padding: 0.7rem 0;
+        }
+
+        @include respond-to("small") {
+          font-size: 1rem;
+        }
+
+        & a {
+          color: $white;
+        }
+
+        &:last-child {
+          padding-right: 0;
+
+          &::after {
+            left: 17%;
+          }
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -0.4rem;
+          left: 5%;
+          width: 90%;
+          border-bottom: 0.1rem solid $white;
+          transform: scale(0);
+          transition: transform 0.3s ease-in-out;
+        }
+
+        @include respond-to("desktop") {
+          &:hover::after {
+            transform: scale(1);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,141 @@
+.header {
+  @include container-grid;
+  grid-template-rows: 30vh 1fr;
+  background-image: url("../assets/top-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  row-gap: 10vh;
+  height: 100%;
+  padding-bottom: 10vh;
+  position: relative;
+
+  &__banner {
+    grid-column: 2 / 3;
+    grid-row: 2;
+
+    &__head {
+      &__text {
+        letter-spacing: 0.2rem;
+        text-shadow: $black 0.1rem 0.1rem 0.1rem;
+
+        &__title {
+          font-size: 3.5rem;
+          color: $white;
+          animation: fade-in 0.5s ease-in-out;
+
+          @include respond-to("very-small") {
+            font-size: 2rem;
+          }
+        }
+
+        &__subtitle {
+          font-size: 2rem;
+          color: $white;
+          animation: fade-in 1s ease-in-out;
+
+          @include respond-to("very-small") {
+            font-size: 1.5rem;
+          }
+        }
+      }
+
+      &__form {
+        margin-top: 2vh;
+
+        @include respond-to("small") {
+          display: flex;
+          flex-direction: column;
+
+          * {
+            width: 46%;
+          }
+        }
+
+        @include respond-to("very-small") {
+          * {
+            width: 100%;
+            margin: 0.5rem 0;
+          }
+        }
+
+        &__input {
+          cursor: pointer;
+          padding: 0.4rem 1rem 0.4rem 1rem;
+          border: none;
+          border-radius: 5px;
+          font-style: italic;
+          margin: 0.5rem 0.5rem;
+
+          @include respond-to("very-small") {
+            margin: .5rem 0;
+          }
+        }
+
+        &__button {
+          @include button;
+          margin: 0.5rem 0.5rem;
+
+          @include respond-to("very-small") {
+            margin: .5rem 0;
+          }
+        }
+      }
+    }
+
+    &__imgs {
+      margin-top: 10vh;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 2rem;
+
+      @include respond-to("small") {
+        margin-top: 3vh;
+      }
+
+      @include respond-to("medium") {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 1rem;
+      }
+
+      @include respond-to("very-small") {
+        grid-template-columns: 1fr;
+      }
+
+      &__box {
+        display: flex;
+        flex-direction: column;
+        background: #ffffff27;
+        border-radius: 15px;
+        overflow: hidden;
+        cursor: pointer;
+
+        &:hover &__img {
+          transform: scale(0.95);
+        }
+
+        &__img {
+          width: 100%;
+          height: 90%;
+          border-top-right-radius: 15px;
+          border-top-left-radius: 15px;
+          transition: transform 0.3s ease;
+        }
+
+        &__title {
+          color: $white;
+          padding: 1rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 1rem;
+
+          & > span {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}

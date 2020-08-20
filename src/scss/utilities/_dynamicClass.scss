@@ -1,0 +1,23 @@
+.fixed-navigation {
+  position: fixed;
+  width: 100%;
+  padding: 2vw 10vw;
+  background: $purple;
+  z-index: 1;
+}
+
+.show-menu {
+  transform: translateY(0) !important;
+}
+
+.hamburger-transform {
+  transform: rotate(45deg) translateY(-0.8rem) !important;
+
+  &::after {
+    transform: rotate(90deg) translate(0.7rem, 0.7rem) !important;
+  }
+
+  &::before {
+    transform: scale(0) !important;
+  }
+}

@@ -1,0 +1,22 @@
+.hamburger {
+  display: none;
+  height: 1.5rem;
+  width: 2rem;
+  position: relative;
+  border-bottom: 0.2rem solid $white;
+  cursor: pointer;
+  transition: transform .3s ease;
+
+  @include respond-to("medium") {
+    display: inline;
+  }
+
+  &::before {
+    @include hamburger-pseudoelements;
+    top: 50%;
+  }
+
+  &::after {
+    @include hamburger-pseudoelements;
+  }
+}
